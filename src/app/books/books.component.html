@@ -1,0 +1,11 @@
+<!-- <h1>Book Shop</h1> -->
+
+<ul *ngIf="isShowing">
+   
+
+    <ng-container *ngFor="let book of books; let i = index" >
+        <!-- (bookEmiter)="add($event)" -->
+
+    <app-book [book]="book" class="book" ></app-book>
+</ng-container>
+</ul>
