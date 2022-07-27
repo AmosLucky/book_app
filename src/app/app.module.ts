@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core";
+import { NgModule, OnInit } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { AppComponent } from "./app.component";
@@ -11,6 +11,8 @@ import { AppRoutingModule } from "./app-routing.module";
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { AuthModule } from "./auth/auth.module";
+import { initializeApp } from "firebase/app";
+import { firebaseConfig } from "./firebase.config";
 
 @NgModule({
     declarations: [AppComponent, CartComponent, ],
@@ -19,6 +21,14 @@ import { AuthModule } from "./auth/auth.module";
     bootstrap:[AppComponent]
 })
 
-export class AppModule{
+export class AppModule implements OnInit{
+    constructor(){
+        initializeApp(firebaseConfig);
+    }
+
+    ngOnInit(): void {
+        initializeApp(firebaseConfig);
+    }
+    
 
 }

@@ -6,9 +6,15 @@
         <a routerLink="">Book Shop</a>
     </div>
     <div>
-        <a routerLink="/login" class="px-3">Login</a>
-        <a routerLink="/register" class="px-3">Register</a>
         <a routerLink="/cart" class="px-3">My Cart</a>
+        <ng-container *ngIf="!isAuthenticated()" >
+            <a routerLink="/login" class="px-3">Login</a>
+        <a routerLink="/register" class="px-3">Register</a>
+        </ng-container>
+        <ng-container *ngIf="isAuthenticated()" >
+          <button (click)="logOut()">Logout</button> 
+        </ng-container>
+        
     </div>
 </nav>
 
